@@ -6,40 +6,44 @@ import "../App.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({ email: '', password: '' });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (email && password) {
-      navigate("/dashboard");
+    if (form.email && form.password) {
+      navigate('/dashboard');
+    } else {
+      alert('Please enter email and password');
     }
   };
-
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleLogin}>
-        <h2>Login</h2>
+    <div className="login-wrapper">
+      <form className="login-card" onSubmit={handleLogin}>
+        <h2 className="login-title">Login</h2>
         <input
           className="login-input"
           type="email"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
+          name="email"
+          placeholder="Email Address"
+          onChange={handleChange}
         />
         <input
           className="login-input"
           type="password"
+          name="password"
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleChange}
         />
         <button className="login-button" type="submit">
           Login
         </button>
-        <p>
-  Don't have an account? <Link to="/signup">Sign up</Link>
-</p>
-
-        
+        <p className="switch-link">
+          Don't have an account? <Link to="/signup">Signup here</Link>
+        </p>
       </form>
     </div>
   );

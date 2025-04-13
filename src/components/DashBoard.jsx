@@ -13,18 +13,20 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="dashboard-container">
-      <h2>Dashboard</h2>
-      {weather ? (
-        <div className="weather-card">
-          <h3>Weather Info</h3>
-          <p><strong>City:</strong> {weather.location.name}</p>
-          <p><strong>Temperature:</strong> {weather.current.temp_c} °C</p>
-          <p><strong>Condition:</strong> {weather.current.condition.text}</p>
-        </div>
-      ) : (
-        <p>Loading weather data...</p>
-      )}
+    <div className="dashboard-wrapper">
+      <div className="dashboard-card">
+        <h2 className="dashboard-title">Dashboard</h2>
+        {weather ? (
+          <div className="weather-details">
+            <h3>Weather Info</h3>
+            <p><strong>City:</strong> {weather.location.name}</p>
+            <p><strong>Temperature:</strong> {weather.current.temp_c} °C</p>
+            <p><strong>Condition:</strong> {weather.current.condition.text}</p>
+          </div>
+        ) : (
+          <p className="loading-text">Loading weather data...</p>
+        )}
+      </div>
     </div>
   );
 };

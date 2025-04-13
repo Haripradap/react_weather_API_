@@ -26,9 +26,9 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-container">
-      <form className="signup-form" onSubmit={handleSignup}>
-        <h2>Sign Up</h2>
+    <div className="signup-wrapper">
+      <form className="signup-card" onSubmit={handleSignup}>
+        <h2 className="signup-title">Create Account</h2>
         <input
           className="signup-input"
           type="text"
@@ -40,7 +40,7 @@ const Signup = () => {
           className="signup-input"
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Email Address"
           onChange={handleChange}
         />
         <input
@@ -60,8 +60,8 @@ const Signup = () => {
         <button className="signup-button" type="submit">
           Sign Up
         </button>
-        <p>
-          Already have an account? <Link to="/">Login</Link>
+        <p className="switch-link">
+          Already registered? <Link to="/">Login here</Link>
         </p>
       </form>
     </div>
